@@ -1,12 +1,12 @@
 {
-  "name": "angular8-meanstack-backend",
+  "name": "meanzi-backend",
   "version": "1.0.0",
   "description": "An angular 8 mean stack crud web app with angular material 7.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Digamber Rawat",
+  "author": "Faozi",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
