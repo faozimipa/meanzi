@@ -25,7 +25,7 @@ export class AddStudentComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   studentForm: FormGroup;
   subjectArray: Subject[] = [];
-  SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
+  SectionArray: any = ['A', 'B', 'C', 'D', 'E'];
 
   ngOnInit() {
     this.submitBookForm();

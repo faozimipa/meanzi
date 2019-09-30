@@ -6,13 +6,22 @@
 
 <!-- Form -->
 <div class="inner-wrapper">
-  <form [formGroup]="studentForm" (ngSubmit)="updateStudentForm()" #resetStudentForm="ngForm" novalidate>
+  <form
+    [formGroup]="studentForm"
+    (ngSubmit)="updateStudentForm()"
+    #resetStudentForm="ngForm"
+    novalidate
+  >
     <!-- Left block -->
     <mat-card>
       <div class="controlers-wrapper">
         <!-- Name -->
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Student name" formControlName="student_name">
+          <input
+            matInput
+            placeholder="Student name"
+            formControlName="student_name"
+          />
           <mat-error *ngIf="handleError('student_name', 'required')">
             You must provide a<strong>student name</strong>
           </mat-error>
@@ -20,7 +29,11 @@
 
         <!-- Email -->
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Student email" formControlName="student_email">
+          <input
+            matInput
+            placeholder="Student email"
+            formControlName="student_email"
+          />
           <mat-error *ngIf="handleError('student_email', 'required')">
             You must provide a<strong>student email</strong>
           </mat-error>
@@ -29,8 +42,11 @@
         <!-- Section -->
         <mat-form-field>
           <mat-label>Section</mat-label>
-          <mat-select [(value)]="selected" formControlName="section">
-            <mat-option [value]="sectioinArray" *ngFor="let sectioinArray of SectioinArray">{{sectioinArray}}
+          <mat-select formControlName="section">
+            <mat-option
+              [value]="sectionArray"
+              *ngFor="let sectionArray of SectionArray"
+              >{{ sectionArray }}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="handleError('section', 'required')">
@@ -46,25 +62,45 @@
         <!-- Add subjects -->
         <mat-form-field class="multiple-items">
           <mat-chip-list #chipList>
-            <mat-chip *ngFor="let subjectArray of subjectArray" [selectable]="selectable" [removable]="removable"
-              (removed)="remove(subjectArray)">
-              {{subjectArray.name}}
+            <mat-chip
+              *ngFor="let subjectArray of subjectArray"
+              [selectable]="selectable"
+              [removable]="removable"
+              (removed)="remove(subjectArray)"
+            >
+              {{ subjectArray.name }}
               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
-            <input placeholder="Add subject" [matChipInputFor]="chipList"
-              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
-              (matChipInputTokenEnd)="add($event)">
+            <input
+              placeholder="Add subject"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)"
+            />
           </mat-chip-list>
-          <i class="material-icons tooltip-info" matTooltip="Enter subject name and press enter to add subjects">
+          <i
+            class="material-icons tooltip-info"
+            matTooltip="Enter subject name and press enter to add subjects"
+          >
             info
           </i>
         </mat-form-field>
 
         <!-- Date of birth -->
         <mat-form-field>
-          <input matInput readonly [matDatepicker]="picker" placeholder="Date of birth" formControlName="dob"
-            (dateChange)="formatDate($event)">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <input
+            matInput
+            readonly
+            [matDatepicker]="picker"
+            placeholder="Date of birth"
+            formControlName="dob"
+            (dateChange)="formatDate($event)"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           <mat-error *ngIf="handleError('dob', 'required')">
             Date of birth is required
@@ -74,7 +110,10 @@
         <!-- Gender -->
         <div class="misc-bottom-padding">
           <mat-label>Gender:</mat-label>
-          <mat-radio-group aria-label="Select an option" formControlName="gender">
+          <mat-radio-group
+            aria-label="Select an option"
+            formControlName="gender"
+          >
             <mat-radio-button value="Male">Male</mat-radio-button>
             <mat-radio-button value="Female">Female</mat-radio-button>
           </mat-radio-group>
